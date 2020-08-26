@@ -38,7 +38,7 @@ class Kurv {
         if (this.y > height-this.dyb) {this.y = height - this.dyb;};
     }
 
-    /* Tjekker om bolden/appelsinen er grebet ved at se om den rammer
+    /* Tjekker om bolden/limefrugten er grebet ved at se om den rammer
      * "rent" ned gennem kurvens overkant. Parametrene er hhv. boldens
      * midtpunkts koordinater og boldens radius
      */
