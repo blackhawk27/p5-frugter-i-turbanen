@@ -60,7 +60,7 @@ class Frugt {
 
 
 
-                    //Hej
+                    //Hej med dig
                 }
             }
         }
