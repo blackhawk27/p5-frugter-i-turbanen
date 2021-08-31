@@ -1,6 +1,6 @@
 /*
- * Dette script definerer klassen Kurv
-*/
+ * Dette script definerer klassen Kurv, som vi bruger til at lave turbanen
+ */
 
 class Kurv {
     /* Den første del er en "konstruktør".
@@ -17,33 +17,50 @@ class Kurv {
         this.col = [250,230,150];
     }   
     
-    /* Tegner kurven. Her kan evt. sættes et billede ind i stedet
+    /* 
+     * Tegner kurven. Her kan evt. sættes et billede ind i stedet
      */
-    tegn = function() {
+    tegn() {
         fill(this.col);
         rect(this.x, this.y, this.bred, this.dyb);
     }
 
-    /* Flytter kurvens position
+    /* 
+     * Flytter kurvens position. Stod i sketch.js før
      */
-    moveX = function(flyt) {
+    move() {
+        if (keyIsDown(UP_ARROW)) {
+            this.moveY(-this.speed);
+        }
+        if (keyIsDown(DOWN_ARROW)) {
+            this.moveY(this.speed);
+        }    
+        if (keyIsDown(LEFT_ARROW)) {
+            this.moveX(-this.speed);
+        }
+        if (keyIsDown(RIGHT_ARROW)) {
+            this.moveX(this.speed);
+        } 
+    }
+    moveX(flyt) {
         this.x += flyt;
         if (this.x < 0) {this.x = 0;};
         if (this.x > width-this.bred) {this.x = width - this.bred;};
     }
 
-    moveY = function(flyt) {
+    moveY(flyt) {
         this.y += flyt;
         if (this.y < 0) {this.y = 0;};
         if (this.y > height-this.dyb) {this.y = height - this.dyb;};
     }
 
-    /* Tjekker om bolden/limefrugten er grebet ved at se om den rammer
-     * "rent" ned gennem kurvens overkant. Parametrene er hhv. boldens
-     * midtpunkts koordinater og boldens radius
+    /* 
+     * Tjekker om frugten er grebet ved at se om den rammer
+     * "rent" ned gennem kurvens overkant. Parametrene er hhv. frugtens
+     * midtpunkts koordinater og dens radius (dvs. dens halve bredde)
      */
-    grebet = function(xa, ya, ra) {
-        if ((ya < this.y+3 && ya > this.y-3) && xa > this.x+ra && xa < this.x+this.bred-ra) {
+    grebet(xa, ya, ra) {
+        if ((ya < this.y+6 && ya > this.y-6) && xa > this.x+ra && xa < this.x+this.bred-ra) {
             return true;
         }
         else {

@@ -1,12 +1,15 @@
-/* Frugt-klasse til at lave limefrugter med mere ud fra*/
+/* Frugt-klasse til at lave appelsiner, limefrugter med mere ud fra*/
 
 class Frugt {
     /* Den første del er en "konstruktør".
      * Den tager parametrene og konstruerer et nyt objekt 
      * ud fra dem. Værdierne huskes som hørende til netop 
-     * dette objekt ved hjælp af nøgleordet this
+     * dette objekt ved hjælp af nøgleordet    this
+     * 
+     * Parametrene til konstruktøren er
+     * position (x og y), radius (r), fart (xs og ys) samt farve (c)
      */
-    constructor(x, y, r, xs, ys ,c) {
+    constructor(x, y, r, xs, ys, c) {
         this.x = x;
         this.y = y;
         this.r = r;
@@ -16,35 +19,39 @@ class Frugt {
         this.tid = random(100,400);
         this.moving = false;
         this.showing = false;
-        console.log("Ny frugt er lavet, tiden er "+this.tid);
+        console.log("Ny frugt er lavet, dens ventetid er "+this.tid);
     }  
 
-    display = function() {
+    display() {
         if (this.showing) {
             fill(this.col);
             ellipse(this.x, this.y, this.r*2, this.r*2);
+            // Sæt evt. et billede ind i stedet for disse to linjer
+            // Men husk at det skal loades i sketch.js og at det skal kunne findes her
         }
     }
 
     //Her skal vi sørge for at frugten bevæger sig, hvis den er startet
-    move = function() {
-        if (this.moving) {
+    move() {
+        if (this.moving) {             // Så er den startet og skal flyttes
             this.x += this.xspeed;
             this.y += this.yspeed;
-            this.yspeed += grav;
+            this.yspeed += grav;       // grav ligger i sketch.js og er fælles for alle frugter
+            
+            // Vi skal tjekke om den er røget ud af spil
             if (this.x > width || this.y > height) {
                 missed += 1;
                 liv -= 1;
                 if (liv < 1) {
-                    spilIgang = false;
+                    spilIgang = false; // spilIgang og liv er ligeledes fælles. Ikke flere liv
                     genstartKnap.show();
 
-                    //restart();
+                    // klar til restart();
                 }
-                console.log("Afskyder ny frugt");
+                console.log("Afskyder frugt igen");
                 this.shootNew();
             }
-        } else {
+        } else {                       // ellers er den ikke startet, så tæller ventetiden ned
             this.tid -= 1;
             if (this.tid < 60) {
                 this.showing = true;
@@ -56,8 +63,8 @@ class Frugt {
     }
 
     //Her skal vi sørge for at frugten skydes afsted igen
-    shootNew = function() {
-        this.x = 20;
+    shootNew() {
+        this.x = this.r;
         this.y = random(200, 550);
         this.yspeed = -10 * (this.y/550);
         this.xspeed = random(4);
