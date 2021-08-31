@@ -23,6 +23,7 @@ class Kurv {
     tegn() {
         fill(this.col);
         rect(this.x, this.y, this.bred, this.dyb);
+        image(turbanbillede, this.x+1, this.y+5, this.bred-1, this.dyb-10);
     }
 
     /* 

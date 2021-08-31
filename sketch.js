@@ -19,6 +19,7 @@ let frugtliste = [];
 
 // Turbanen
 let turban;
+let turbanbillede;
 
 // Tyngden: acceleration i nedadgående retning
 const grav = 0.1; 
@@ -33,6 +34,10 @@ let spilIgang = true;   //flag
 /* 
  * 
  */
+function preload() {
+    turbanbillede = loadImage('Saturn_tight_lille.png');
+}
+
 function setup() {  // kører kun en gang, når programmet startes
     createCanvas(595, 600);
     textAlign(CENTER, CENTER);

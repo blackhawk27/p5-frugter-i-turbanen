@@ -66,7 +66,7 @@ class Frugt {
     shootNew() {
         this.x = this.r;
         this.y = random(200, 550);
-        this.yspeed = -10 * (this.y/550);
+        this.yspeed = -10 * (this.y/550); // dette er ikke godt. Hvad kan I huske om det skrå kast?
         this.xspeed = random(4);
         this.moving = false;
         this.showing = false;
