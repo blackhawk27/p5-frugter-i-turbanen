@@ -57,6 +57,10 @@ class Frugt {
                 this.showing = true;
                 if (tid < 0) {
                     this.moving = true;
+
+
+
+                    //Hej
                 }
             }
         }
