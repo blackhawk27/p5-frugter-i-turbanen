@@ -35,7 +35,7 @@ let spilIgang = true;   //flag
  * 
  */
 function preload() {
-    turbanbillede = loadImage('Saturn_tight_lille.png');
+    turbanbillede = loadImage('turbanman.png');
 }
 
 function setup() {  // kører kun en gang, når programmet startes
@@ -55,6 +55,7 @@ function setup() {  // kører kun en gang, når programmet startes
     // parametrene til Frugt-konstruktøren er (x, y, radius, xspeed, yspeed, farve)
     limefrugt = new Frugt(20, 550, 20, 4, -10, [110,220,0]);
     frugtliste.push(limefrugt);
+
 }
 
 function draw() {
