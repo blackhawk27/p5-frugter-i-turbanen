@@ -28,7 +28,7 @@ const grav = 0.1;
 
 let score = 0;
 let missed = 0;
-let liv = 8;
+let liv = 1;
 let spilIgang = true;   //flag
 
 /* 
@@ -39,14 +39,15 @@ function preload() {
 }
 
 function setup() {  // kører kun en gang, når programmet startes
-    createCanvas(595, 600);
+    createCanvas(750, 600);
     textAlign(CENTER, CENTER);
     
     // De følgende linjer opretter en knap og formattere den
     genstartKnap = createButton('Genstart');
-    genstartKnap.position(100,20);
+    genstartKnap.position(350, 400);
     genstartKnap.mousePressed(restart);
     genstartKnap.hide();
+    
 
     newspeed = yspeed;
     x = rad;
