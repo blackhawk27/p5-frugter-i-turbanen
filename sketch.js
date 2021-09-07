@@ -2,6 +2,14 @@
 Først laver vi nogle variable til at lave nogle frugter,
 som vi vil skyde afsted og fange i en turban
 */
+//Centrering af canvas
+window.onload = window.onresize = function() {
+    var canvas = document.getElementById('canvas');
+    canvas.width = window.innerWidth * 0.8;
+    canvas.height = window.innerHeight * 0.8;
+}
+
+
 
 // Appelsinen, den gamle - den skal fjernes og erstattes med et Frugt-objekt
 let x = 0; 
@@ -39,12 +47,11 @@ function preload() {
 }
 
 function setup() {  // kører kun en gang, når programmet startes
-    createCanvas(750, 600);
+    createCanvas(750, 500);
     textAlign(CENTER, CENTER);
     
     // De følgende linjer opretter en knap og formattere den
     genstartKnap = createButton('Genstart');
-    genstartKnap.position(350, 400);
     genstartKnap.mousePressed(restart);
     genstartKnap.hide();
     
