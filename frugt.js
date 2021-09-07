@@ -19,7 +19,7 @@ class Frugt {
         this.tid = random(100,400);
         this.moving = false;
         this.showing = false;
-        console.log("Ny frugt er lavet, dens ventetid er "+this.tid);
+       
     }  
 
     display() {
@@ -35,8 +35,7 @@ class Frugt {
     move() {
         if (this.moving) {             // Så er den startet og skal flyttes
             this.x += this.xspeed;
-            this.y += this.yspeed;
-            this.yspeed += grav;       // grav ligger i sketch.js og er fælles for alle frugter
+            // grav ligger i sketch.js og er fælles for alle frugter
             
             // Vi skal tjekke om den er røget ud af spil
             if (this.x > width || this.y > height) {
@@ -48,7 +47,6 @@ class Frugt {
 
                     // klar til restart();
                 }
-                console.log("Afskyder frugt igen");
                 this.shootNew();
             }
         } else {                       // ellers er den ikke startet, så tæller ventetiden ned
@@ -69,9 +67,8 @@ class Frugt {
     //Her skal vi sørge for at frugten skydes afsted igen
     shootNew() {
         this.x = this.r;
-        this.y = random(200, 550);
-        this.yspeed = -10 * (this.y/550); // dette er ikke godt. Hvad kan I huske om det skrå kast?
-        this.xspeed = random(4);
+        this.x = random(20, 750);
+        this.yspeed = random(4);
         this.moving = false;
         this.showing = false;
         this.tid = random(100,400);

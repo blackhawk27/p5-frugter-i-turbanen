@@ -114,9 +114,7 @@ function display() {
 function move() {
     //Her skal vi sørge for at frugten bevæger sig, hvis den er startet
     if (tid <= 0) {
-        x += xspeed;
         y += yspeed;
-        yspeed += grav;
     }
     if (x > width || y > height) {
         missed += 1;
@@ -145,10 +143,10 @@ function checkScore() {
     
 function shootNew() {
     //Her skal vi sørge for at en frugt skydes afsted igen. Lige nu er det kun appelsinen
-    x = rad;
-    y = random(200,550);
+    // mine tanker var at frugterne skulle laves på x aksen i stedt for y, og så falde lodret ned...
+    // men jeg mangler noget, så det er ikke færdigt...
+    x = random(200,550);
     yspeed = newspeed * (y/550);
-    xspeed = random(4);
     tid = random(400);
 }
 
